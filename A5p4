@@ -1,0 +1,56 @@
+// A5p4.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	//variables
+	int years, maxYears, monthly, months, totalmonths,
+		monthsInYear=4 ;
+	float avgRainfall, 
+		  total = 0;
+
+	//inital display
+	cout << "This Program will calculate average rainfall over a\n";
+	cout << "period of years.\n";
+	
+	//get years
+	cout << "How many years do you wish to average? ";
+	cin >> maxYears;
+
+	//display year
+	for (years = 1; years <= maxYears; years++)
+	{
+		cout << "\nYear "<<years<<"\n";
+		
+		//get monthly rain
+		for (months = 1; months <= monthsInYear; months++)
+		{
+			cout << "Number of inches of rain for month " 
+				 << months << "? ";
+			cin >> monthly;
+			total += monthly;
+		}
+
+	}
+
+	//calculations
+	totalmonths = maxYears * monthsInYear;
+	avgRainfall = total / totalmonths;
+
+	//display final calculations
+	cout << endl <<"Over a period of " << totalmonths << " months, " <<
+		total << " inches of rain fell.\n";
+	
+	//display monthly average
+	cout << fixed << showpoint<< setprecision(3);
+	cout << "Average monthly rainfall for the period is " <<
+		avgRainfall << " inches.\n"<< endl;
+
+    return 0;
+}
+
