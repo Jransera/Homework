@@ -1,0 +1,47 @@
+//assingment 6 program 2
+//Yared (jr) Ansera
+//Oct 8th 2017
+
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+float fallingdistance(float);
+
+
+//main function
+int main()
+{
+	//Header text
+	cout << "Second \t Distance" << endl;
+	cout << "======================" << endl;
+
+	for (float time= 1; time <= 10; time++)
+	{
+		//formatting
+		cout << fixed << showpoint << setprecision(2)<< right;
+		
+		cout << time << "\t ";
+				
+		//send to function
+		cout << setw(6)<< fallingdistance(time);
+
+		cout << " Meters" << endl;
+	}
+
+    return 0;
+}
+
+
+//determine the distance based on fall time
+float fallingdistance(float time)
+{
+	float distance;
+	float gravity = 9.8;
+	
+	distance = (pow(time, 2)* gravity) / 2;
+
+	return distance;
+
+}
