@@ -1,0 +1,29 @@
+// A2p4.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+//this program shows the data from a energy drink survey
+
+
+int main()
+{
+	int energyCust, citrusCust;
+	const int totalCust = 16500;
+	const double energyRate = .15;
+	const double citrusRate = .58;
+
+	//determine the amount of custonmers who buy energy drinks
+	energyCust = totalCust * energyRate;
+	cout << energyCust << " customers purchased one or more energy drink(s) per week \n";
+
+	//determine the amount of customerse who like citrus
+	citrusCust = energyCust * citrusRate;
+	cout << citrusCust << " of those customers preferred citrus flavored energy drinks \n";
+
+
+    return 0;
+}
+
