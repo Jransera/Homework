@@ -1,0 +1,41 @@
+//Assingment 6 problem 1
+//Yared (jr) Ansera
+//Oct 8th 2017
+
+#include "stdafx.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	ifstream file1;
+	float num,average;
+	float numOfNum = 0, total=0;
+	
+	//open file
+	file1.open("C:\\temp\\Random.txt");
+	
+	if (!file1) //test for open failure
+	{
+		cout << "File open Failure";
+		}
+	
+
+	//read input values
+	while (file1 >> num )
+	{
+		 numOfNum++;
+		total += num;	
+	}
+
+	//determine the average
+	average = total / numOfNum;
+
+	//outputs
+	cout << "Number of Numbers: " << numOfNum << endl;
+	cout << "Sum of numbers: " << total << endl;
+	cout << "Average of the numbers is :" << average << endl;
+
+    return 0;
+}
