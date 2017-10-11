@@ -1,0 +1,32 @@
+// A2p3.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+//this program is used to determine the commision due to a stock broker
+
+int main()
+{
+	double initalPrice, commission, total;
+	const double commissionRate = .02;
+	const double stockPrice = 35.00;
+	const int sharesAmount = 750;
+
+	//determine the intial price of stock
+	initalPrice = stockPrice * sharesAmount;
+	cout << "Stock: $" << initalPrice << endl;
+
+	//determine amount of commission
+	commission = initalPrice * commissionRate;
+	cout << "Commission: $" << commission << endl;
+
+	//determine total price
+	total = initalPrice + commission;
+	cout << "Total: $" << total << endl;
+
+
+
+    return 0;
+}
