@@ -1,0 +1,27 @@
+// A2p2.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+//this program is to determine size of values
+
+int main()
+{
+	//display char data size
+	cout << "char   " << sizeof(char) <<endl;
+
+	//display int size
+	cout << "int    " << sizeof(int) << endl;
+
+	//display size of float type
+	cout << "float  " << sizeof(float) << endl;
+
+	//display double data size
+	cout << "double " << sizeof(double) << endl;
+
+
+    return 0;
+}
+
