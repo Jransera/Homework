@@ -1,0 +1,58 @@
+// A5p2.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int speed, maxTime, distance, //variables
+			time = 1;
+
+//get speed
+		do
+		{
+			cout << "what is the speed of the vehicle in mph: ";
+			cin >> speed;
+				
+			if (speed < 0)
+			{
+				cout << "Please enter a non-negative number for speed: ";
+				cin >> speed;
+			}
+		}
+		while (speed < 0);
+	
+//get time  
+		do
+		{
+			cout <<"How many hours has it traveled: ";
+			cin >> maxTime;
+			
+			if (maxTime <= 0)
+			{
+				cout << "Please enter a 1 or greater for hours: ";
+				cin >> maxTime;
+			}
+		} 
+		while (maxTime <= 0);
+
+
+//final display
+	cout << "\nHour     Distance Traveled in Miles \n";
+	cout << "----------------------------\n";
+
+		do
+		{
+			distance = speed * time;
+			cout << time << "  " << distance << endl;
+			
+		}
+		while (time++ < maxTime);
+
+	
+	return 0;
+}
+
+
