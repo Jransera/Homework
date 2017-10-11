@@ -1,0 +1,80 @@
+// A4p2.cpp : Defines the entry point for the console application.
+//
+
+// Jr Ansera Assignment 4 program 2
+//9-14-17
+//this program will determin the cost of a software after dicount
+
+
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+int main()
+{
+	float unit, price, finalP, discount;
+
+	const float unitPrice = 99.0;
+	const float tenRate = .20;
+	const float twentyRate = .30;
+	const float fiftyRate = .40;
+	const float oneHundredRate = .50;
+
+
+	cout << "How many units were sold? ";
+	cin >> unit;
+
+	cout << fixed << setprecision(2);
+
+	price = unit * unitPrice;	//determine inital price
+
+
+	//determine final price and discount	
+	if (unit >= 10 && unit <= 19)	// if the total units sold are 10-19
+		{
+			discount = price* tenRate ;
+
+
+			finalP = price - discount;
+
+			cout << "The total cost of the purchase is " << finalP << endl;
+		}
+
+	else if (unit >= 20 && unit <= 49)	// if the total units sold are 20-49
+		{
+		discount = price* twentyRate;
+			
+			finalP = price - discount;
+
+			cout << "The total cost of the purchase is " << finalP << endl;
+		}
+	
+	else if (unit >= 50 && unit <= 99)	// if the total units sold are 50-99
+	{
+		discount = price* fiftyRate;
+
+		finalP = price - discount;
+
+		cout << "The total cost of the purchase is " << finalP << endl;
+	}
+
+	else if (unit >= 100)				// if the total units sold are 100+
+	{
+		discount = price* oneHundredRate;
+
+		finalP = price - discount;
+
+		cout << "The total cost of the purchase is " << finalP << endl;
+	}
+
+		
+			
+
+
+
+    return 0;
+}
+
+
