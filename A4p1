@@ -1,0 +1,71 @@
+ // A4p1.cpp : Defines the entry point for the console application.
+//
+
+//Jr Ansera Assignment 4 program 1
+// 9-14-17
+// this program will turn numbers into roman numerals
+
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+	int choice; // the number the user puts in
+
+	cout << "Enter a number (1-10): ";
+	cin >> choice;
+
+	switch (choice)	
+		{
+		case(1):	// determine the character the user chose
+			cout << "The roman numeral version of 1 is I \n";
+			break;
+
+		case (2):
+			cout << "The roman numeral version of 2 is II \n";
+			break;
+
+		case(3):
+			cout << "The roman numeral version of 3 is III \n";
+			break;
+
+		case(4):
+			cout << "The roman numeral version of 4 is IV \n";
+			break;
+
+		case(5):
+			cout << "The roman numeral version of 5 is V \n";
+			break;
+
+		case(6):
+			cout << "The roman numeral version of 6 is VI \n";
+			break;
+
+		case(7):
+			cout << "The roman numeral version of 7 is VII \n";
+			break;
+
+		case(8):
+			cout << "The roman numeral version of 8 is VIII \n";
+			break;
+
+		case(9):
+			cout << "The roman numeral version of 9 is IX \n";
+			break;
+
+		case(10):
+			cout << "The roman numeral version of 10 is X \n";
+			break;
+		
+		default:
+			cout << "Please enter a number between 1-10 \n";
+		
+			}
+    return 0;
+}
+
+
+
