@@ -1,0 +1,37 @@
+// A1p3.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+// This program will calculate the total retail sale.
+#include <iostream>
+using namespace std;
+
+int main()
+
+{
+	double price, taxRate, salesTax, total;
+
+	// Get Retail price.
+	cout << "Please enter the retail price: ";
+	cin >> price; 
+
+	// Get tax Rate.
+	cout << "Please enter the tax rate: ";
+		cin >> taxRate;
+
+	// calculate sales tax
+	salesTax = taxRate*price;
+
+	//display sales tax.
+	cout << "The sales tax is :$" << taxRate << endl ;
+	
+	//calculate total price.
+	total = salesTax + price;
+	
+	//display the total price.
+	cout << "The total price is :$" << total << endl;
+
+
+
+    return 0;
+}
