@@ -1,0 +1,42 @@
+// A5p3.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+int main()
+{
+ 
+	int days, maxDays;
+	float totalPay = 0.00, pay= 0.01;	 
+
+	do
+	{
+		cout << "Enter the numbers of days: ";
+		cin >> maxDays;
+
+		if (maxDays < 0)
+			cout << "The nuber of days must be at least one.\n";
+	}
+	while (maxDays < 0);
+
+	cout << "Day     Total pay\n";
+	cout << "----------------------\n";
+
+	for (days = 0; days < maxDays; ++days)
+	{
+		
+		cout << days << "    $   " << pay << endl;
+		totalPay += pay;
+		pay = pay * 2;
+	}
+
+	cout << "----------------------\n";
+	cout << "Total     $   " << totalPay << endl ;
+
+
+    return 0;
+}
