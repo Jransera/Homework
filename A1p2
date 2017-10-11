@@ -1,0 +1,30 @@
+// A1P2.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+// This program calculates the user's remaining credit
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	double maxCredit, CreditUsed, remainingCredit;
+	
+	//get maximum credit
+	cout << " What is your maximum credit? ";
+		cin >> maxCredit;
+
+	//Get the credit already used. 
+	cout << "How much credit did you already used? ";
+	cin >> CreditUsed;
+
+	//Calculate the remainingCredit.
+	remainingCredit = maxCredit - CreditUsed;
+	
+	//Display remainingCredit.
+	cout << "Your remaining credit is $" << remainingCredit << endl;
+
+	return 0;
+
+}
+
