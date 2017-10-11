@@ -1,0 +1,167 @@
+// A4p3.cpp : Defines the entry point for the console application.
+//
+
+//Jr Ansera Assignment 4 program 3
+//9-14-17
+// this Program determines the amount of bank fees
+
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+int main()
+{
+	float balance, bankFees, numChecks, checkTotal;	//varriables
+
+
+
+	const float monthlyfee = 10.0;	//monthly fee
+	const float twentyURate = .10;	// when num of checks is less than 20
+	const float twentyRate = .08;	// when num of checks is 20-39
+	const float fortyRate = .06;	// when num of checks is 40-59
+	const float sixtyRate = .04;	// when num of checks is 60+
+	const float penalty = 15.0;
+
+
+
+	//initial prompts
+
+	cout << "Enter the following information about your checking account.\n";
+	
+	cout << "Beginning balance: $";
+	cin >> balance;
+
+	cout << "Number of checks written: ";
+	cin >> numChecks;
+
+	
+
+	
+	// calculations
+
+	cout << fixed << setprecision(2);
+	
+
+
+
+
+	if (balance >= 400) // when the balance is above 400$
+	{
+		if (numChecks < 20) // when # of checks is under 20
+		{
+			checkTotal = numChecks*twentyURate;
+			bankFees = monthlyfee + checkTotal;
+			cout << "The bank fee for this month is: $" << bankFees << endl;
+		}
+
+		else if (numChecks >=20 && numChecks <=39) // when # of checks is 20-39
+		{
+			checkTotal = numChecks*twentyRate;
+			bankFees = monthlyfee + checkTotal;
+			cout << "The bank fee for this month is: $" << bankFees << endl;
+		}
+
+		else if ( numChecks >=40 && numChecks <=59) // when # of checks is 40-59
+		{
+			checkTotal = numChecks* fortyRate;
+			bankFees = monthlyfee + checkTotal;
+			cout << "The bank fee for this month is: $" << bankFees << endl;
+		}
+
+		else if (numChecks >=60) // when #checks is 60+
+		{
+			checkTotal = numChecks* sixtyRate;
+			bankFees = monthlyfee + checkTotal;
+			cout << "The bank fee for this month is: $" << bankFees << endl;
+		}
+
+	}
+
+
+
+
+
+	else if (balance <= 400 && balance >= 0) // when the account is under 400 ( penalty fees apllied)
+	{
+		if (numChecks < 20)	// when # of checks is under 20
+		{
+			checkTotal = numChecks*twentyURate;
+			bankFees = (monthlyfee + penalty) + checkTotal;
+			cout << "The bank fee for this month is: $" << bankFees << endl;
+		}
+
+		else if (numChecks >= 20 && numChecks <= 39) //when # of checks is 20-39
+		{
+			checkTotal = numChecks*twentyRate;
+			bankFees = (monthlyfee + penalty) + checkTotal;
+			cout << "The bank fee for this month is: $" << bankFees << endl;
+		}
+
+		else if (numChecks >= 40 && numChecks <= 59) // when # of checks is 40-59
+		{
+			checkTotal = numChecks* fortyRate;
+			bankFees = (monthlyfee + penalty) + checkTotal;
+			cout << "The bank fee for this month is: $" << bankFees << endl;
+		}
+
+		else if (numChecks >= 60) // when # of checks is 60+
+		{
+			checkTotal = numChecks* sixtyRate;
+			bankFees = (monthlyfee + penalty) + checkTotal;
+			cout << "The bank fee for this month is: $" << bankFees << endl;
+		}
+
+	}
+
+
+
+
+
+	else if (balance < 0) //when balance is negative ( insert warning message)
+	{
+
+		if (numChecks < 20)	// when # of checks is under 20
+		{
+			checkTotal = numChecks*twentyURate;
+			bankFees = (monthlyfee + penalty) + checkTotal;
+			cout <<"WARNING: ACCOUNT IS OVERDRAWN\n"
+				<< "The bank fee for this month is: $" << bankFees << endl;
+		}
+
+		else if (numChecks >= 20 && numChecks <= 39) //when # of checks is 20-39
+		{
+			checkTotal = numChecks*twentyRate;
+			bankFees = (monthlyfee + penalty) + checkTotal;
+			cout << "WARNING: ACCOUNT IS OVERDRAWN\n"
+				<< "The bank fee for this month is: $" << bankFees << endl;
+		}
+
+		else if (numChecks >= 40 && numChecks <= 59) // when # of checks is 40-59
+		{
+			checkTotal = numChecks* fortyRate;
+			bankFees = (monthlyfee + penalty) + checkTotal;
+			cout << "WARNING: ACCOUNT IS OVERDRAWN\n"
+				<< "The bank fee for this month is: $" << bankFees << endl;
+		}
+
+		else if (numChecks >= 60) // when # of checks is 60+
+		{
+			checkTotal = numChecks* sixtyRate;
+			bankFees = (monthlyfee + penalty) + checkTotal;
+			cout << "WARNING: ACCOUNT IS OVERDRAWN\n"
+				<< "The bank fee for this month is: $" << bankFees << endl;
+		}
+
+	}
+	
+
+
+
+		
+
+
+
+    return 0;
+}
