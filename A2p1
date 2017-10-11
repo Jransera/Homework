@@ -1,0 +1,39 @@
+// A2p1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+
+
+int main()
+{
+	double mealPrice, priceTotal, mealTax, mealTip, mealPriceTax ;
+	const  double taxRate = 0.0675;
+	const double tipRate = 0.20;
+
+	//get meal price
+	cout << " Meal: $";
+	cin >> mealPrice;
+
+	//determine tax amount
+	mealTax = mealPrice * taxRate;
+	cout << "Tax: $" << mealTax << endl;
+
+	//determine new price with tax
+	mealPriceTax = mealTax + mealPrice;
+	
+	
+	//determine tip amount
+	mealTip = mealPriceTax * tipRate;
+	cout << "Tip: $" << mealTip << endl;
+
+	//determine total
+	priceTotal = mealPriceTax+ mealTip;
+	cout << "Total: $" << priceTotal << endl;
+
+
+    return 0;
+}
+
