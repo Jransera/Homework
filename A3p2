@@ -1,0 +1,58 @@
+// A3p2.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+// this program will calculate total sales and total sales tax
+
+
+int main()
+{
+	//variables
+	
+	double total,	//total amount of money collected
+		sales,		// amount of money from sales
+		countyTax,	// amount of money from County Tax
+		stateTax,	// amount of money from state tax
+		totalTax;	// total amount of tax collected
+
+	const double cTaxRate = .02;	// percent of county tax
+	const double sTaxRate = .04;	// percent of state tax
+	
+	string(month);
+	string(year);
+
+	//Prompts and inital info
+
+	cout << "Month: ";
+	cin >> month;
+
+	cout << "Year: ";
+	cin >> year;
+
+	cout << "---------------- \n";
+
+	cout << "Total collected:  $ ";
+	cin >> total;
+
+	//calculations
+
+	sales = total / 1.06;
+	countyTax = sales* cTaxRate;
+	stateTax = sales* sTaxRate;
+	totalTax = countyTax + stateTax;
+
+	//display calculations
+
+	cout <<setprecision(2)<<fixed
+		<< "Sales: " <<setw(13) <<right <<"$ "<< sales << endl
+		<< "County Sales Tax: $ " << setw(8) << countyTax << endl
+		<< "State Sales Tax:  $ " << setw(8) << stateTax << endl
+		<< "Total Sales Tax:  $ " << setw(8) << totalTax << endl;
+
+
+    return 0;
+}
