@@ -1,0 +1,52 @@
+	// Assignment3.cpp : Defines the entry point for the console application.
+//
+
+
+//This program will calculate the net and gross Profit of a movie theater based on ticket sales
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	//variables
+	    string (movieName); // movie name
+
+		double adultTix, //number of adult tickets
+			childTix, //number of children tickets
+			grossProf, //total gross box office profit
+			netProf, //total net box office profit
+			dist;  //amount payed to distributor
+	
+		const double adultPrice = 10.00; // price of adult tickets
+		const double childPrice = 6.00; //  price of child ticket
+		const double theaterGross = .20; // percentage of theater gross
+		
+	// display prompts and get intial values
+	
+		cout << "Movie Name: "<<setw(17)<<" ";
+		getline(cin,movieName);
+
+		cout << "Adult Tickets Sold: "<<setw(9)<<" ";
+		cin >> adultTix;
+
+		cout << "Child Tickets Sold: "<< setw(9)<<" ";
+		cin >> childTix;
+
+	//do calcutions
+		grossProf = (adultTix *adultPrice) + (childTix *childPrice);
+		
+		netProf = grossProf*theaterGross;
+
+		dist = grossProf - netProf;
+
+	//display final calculations
+		cout << setprecision(2) << fixed
+			<< "Gross Box Office Profit: " <<setw(5)<<"$"<<grossProf << endl
+			<< "Net Box Office Profit: "<< setw(7)<<"$" << netProf << endl
+			<< "Amount Payed To Distributor: $" << dist << endl;
+
+    return 0;
+}
