@@ -1,0 +1,48 @@
+// A3p3.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+//this program will calculate a savings account with interest
+int main()
+{
+	//variables
+	
+	double
+		interestRate,	// the interest rate
+		timesComp,		// number of times compounded
+		principal,		// the inital amount
+		savings,		// amount of money in savings after interest
+		interest;		// amount money from interest
+
+	//prompts and intial info
+
+	cout << "Interest Rate: "<<right <<setw(3)<<" ";
+	cin >> interestRate;
+	
+
+	cout << "Times Compounded: ";
+	cin >> timesComp;
+
+	cout << "Principal: " <<setw(8)<<"$";
+	cin >> principal;
+
+	//calculations
+	
+	savings = principal*pow((1 + (interestRate / timesComp)), timesComp);
+	interest = savings - principal;
+
+	//display final information
+
+	cout << setprecision(2) << fixed
+		<< "Interest: " << setw(9)<<"$" << interest << endl
+		<< "Amount in Saving: $" << savings << endl;
+
+
+
+    return 0;
+}
