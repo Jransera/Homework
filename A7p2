@@ -1,0 +1,33 @@
+//Assingment 7 problem 2
+//Yared (jr) Ansera
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+//function protorypes
+void repchar(char ch = '*', int n = 45);
+
+int main()
+{
+
+	//call functions
+	repchar();
+		cout << endl;
+	repchar('=');
+		cout << endl;
+	repchar('+', 30);
+		cout << endl;
+    return 0;
+}
+
+
+//display character n number of times
+void repchar(char ch, int n)
+{
+	for (int x = 0; x <= n; x++)
+		cout << ch;
+	
+	return;
+
+}
