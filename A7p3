@@ -1,0 +1,45 @@
+//Assignment 7 problem 3
+//Yared (jr) Ansera
+
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+
+//function prototypes
+void repchar();
+void repchar(char ch);
+void repchar(char ch, int num);
+
+void main()
+{
+	//call function repchar
+	repchar();
+		cout << endl;
+	repchar('=');
+		cout << endl;
+	repchar('+', 30);
+		cout << endl;
+
+    return;
+}
+
+//repchar with no paramaters
+void repchar()
+{
+	for (int x = 0; x <= 45; x++)
+		cout << "*";
+}
+
+//repchar with one paramater
+void repchar(char ch)
+{
+	for (int x = 0; x <= 45; x++)
+		cout << ch;
+}
+
+//repchar with two paramaters
+void repchar(char ch, int num)
+{
+	for (int x = 0; x <= num; x++)
+		cout << ch;
+}
