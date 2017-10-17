@@ -1,0 +1,77 @@
+//Assignment 7 problem 1
+//Yared (jr) Ansera
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include<iomanip>
+using namespace std;
+
+//function prototypes
+double getsales(string);
+void findhighest(double neSales, double seSales,
+	double nwSales, double swSales);
+
+
+
+
+int main()
+{
+	double neSales, seSales, nwSales, swSales;
+	
+	//initiate getsales function
+	swSales = getsales("Southwest");
+	nwSales = getsales("Northwest");
+	seSales = getsales("Southeast");
+	neSales = getsales("Northeast");
+
+	cout << endl;
+
+	//determine highest sales
+	findhighest(neSales, seSales, nwSales, swSales);
+
+
+    return 0;
+}
+
+
+//get the sale numbers
+double getsales(string division )
+{
+	double sales;
+	cout << "Enter the quarterly sales figure for the " << division << " division: ";
+	cin >> sales;
+	
+	while (sales < 0)
+	{
+		cout << "Please enter a dollar amount greater than 0.00: ";
+		cin >> sales;
+	}
+		return sales;
+}
+
+
+//find the highest sales
+void findhighest(double neSales, double seSales,
+	double nwSales, double swSales)
+{
+	cout << fixed << setprecision(2);
+
+	if (neSales > seSales && neSales > nwSales && neSales > swSales)
+		cout << "The Northeast division had the highest sales this quarter."
+		<< endl <<
+		"The division's sales were: $" << neSales<<endl;
+	else if (seSales > neSales && seSales > nwSales && seSales > swSales)
+		cout << "The Southeast division had the highest sales this quarter."
+		<< endl <<
+		"The division's sales were: $" << seSales << endl;
+	else if (swSales > neSales && swSales > nwSales && swSales > seSales)
+		cout << "The Southwest division had the highest sales this quarter."
+		<< endl <<
+		"The division's sales were: $" << swSales << endl;
+	else if(nwSales > neSales && nwSales > swSales && nwSales > seSales)
+		cout << "The Northwest division had the highest sales this quarter."
+		<< endl <<
+		"The division's sales were: $" << nwSales << endl;
+}
+
