@@ -1,0 +1,53 @@
+//Assignment 8 problem 1
+// Yared(Jr) Ansera
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+	const int size = 10;
+	int num[size];
+
+
+
+	cout << "This program will ask you to" << endl
+		<< "enter ten values, then it will" << endl
+		<< "determine the largest and smallest" << endl
+		<< "of the values you entered." << endl << endl;
+
+//get values
+	for (int count = 0; count < size; count++)
+	{
+		cout << "Enter an integer value: ";
+		cin >> num[count];
+
+		cout << endl;
+	}
+
+//find the Highest
+	int highest=num[0];
+	
+	for (int count = 0; count < size; count++)
+	{
+		if (num[count] > highest)
+			highest = num[count];
+	}
+
+	cout <<"The largest value entered is "<<highest<< endl;
+
+//find the lowest
+	int lowest = num[0];
+
+	for (int count = 0; count < size; count++)
+	{
+		if (num[count] < lowest)
+			lowest = num[count];
+	}
+
+	cout <<"The smallest value entered is "<<lowest<< endl;
+
+    return 0;
+}
