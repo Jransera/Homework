@@ -1,0 +1,107 @@
+//Assignment 8 problem 2
+//Yared(JR) Ansera
+
+#include "stdafx.h"
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+//function prototypes
+double getTotal (double[], int);
+double getAverage(double[], int);
+double getLargest(double[], int);
+double getSmallest(double[], int);
+
+int main()
+{
+	const int size = 12;
+	double rainfall[size];
+
+	//get rainfall data
+	for (int count = 0; count < size; count++)
+	{
+		cout << "Enter the rainfall (in inches) for month #"
+			<< (count + 1) << ": ";
+		cin >> rainfall[count];
+	}
+
+	cout << endl;
+	
+	cout << fixed << showpoint << setprecision(2);
+
+	//get total,average, find smallest, find larget
+	double total= getTotal(rainfall, size);
+	double average=getAverage(rainfall, size);
+	double largest = getLargest(rainfall, size);
+	double smallest = getSmallest(rainfall, size);
+
+	//display data
+	cout << fixed << showpoint << setprecision(2);
+	cout << "The total rainfall for the year is " << total <<" inches" << endl;
+	cout << "The average rainfall for the year is " << average <<" inches" << endl;
+	cout << "The largest amount of rainfall was " << largest << " inches" << endl;
+	cout << "The smallest amount of rainfall was " << smallest << " inches" << endl;
+
+    return 0;
+}
+
+
+//Get total rainfall
+double getTotal(double rainfall[], int size)
+{
+	double total = 0;
+	
+	for (int count = 0; count < size; count++)
+		{
+		total += rainfall[count];
+		}
+
+	return total;
+}
+
+//get Average rainfall
+double getAverage(double rainfall[], int size)
+{
+	double total = 0;
+	double average;
+
+	for (int count = 0; count < size; count++)
+	{
+		total += rainfall[count];
+	}
+
+	average = (total / size);
+
+	return average;
+}
+
+
+//find largest  amount of rainfall
+double getLargest(double rainfall[], int size)
+{
+	double largest = rainfall[0];
+
+	for (int count = 0; count < size; count++)
+	{
+		if (rainfall[count] > largest)
+			largest = rainfall[count];
+	}
+
+	return largest;
+}
+
+
+//find smallest amount of rainfall
+double getSmallest(double rainfall[], int size)
+{
+	double smallest = rainfall[0];
+
+	for (int count = 0; count < size; count++)
+	{
+		if (rainfall[count] < smallest)
+			smallest = rainfall[count];
+	}
+
+	return smallest;
+}
