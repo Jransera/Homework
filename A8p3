@@ -1,0 +1,54 @@
+//Assignment 8 problem 3
+//Yared (Jr) Ansera
+
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+int main()
+{
+	const int size = 7;
+	double hours[size], payRate[size], wages[size];
+	int emID[size] = { 5658845,4520125,7895122,
+						8777541,8451277,1302850,
+						7580489};
+
+	
+	
+	cout << "Enter the requested information for each employee." << endl<<endl;
+	
+	//get pay rate and hours for each employee
+	for (int count = 0; count < size; count++)
+	{
+		cout << "Employee #" << emID[count]<<endl;
+		cout << "   Hours worked: ";
+		cin >> hours[count];
+		cout << "   Pay rate: $";
+		cin >> payRate[count];
+			
+			cout << endl;
+	}
+
+	cout << "----------------------" << endl;
+	cout << "Employee \t Wages" << endl;
+	cout << "----------------------" << endl;
+	
+	
+	//display employee wages
+	for (int count = 0; count < size; count++)
+	{
+		wages[count] = (payRate[count] * hours[count]);
+
+
+		cout << fixed << showpoint << setprecision(2);
+		cout << "Employee #" << emID[count] << " $ ";
+		cout << wages[count];
+		cout << endl;
+	}
+
+
+
+    return 0;
+}
