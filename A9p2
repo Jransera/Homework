@@ -1,0 +1,39 @@
+//Yared(jr) Ansera
+//Assignment 9 problem 2
+
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+	const int size = 5; //create a constant for the array
+
+	int *ptr;
+	ptr = new int[size]; // allocate memory for a new array
+	
+	
+	
+
+	for (int count = 0; count < size; count++)
+	{
+		cout << "Please enter an integer: ";
+		cin >> ptr[count];
+	}
+
+	cout << endl;
+	cout << "The integers that you entered doubled are:"<<endl;
+
+	for (int count = 0; count < size; count++)
+	{	 
+		
+		cout << ptr[count] + ptr[count];
+		cout << endl;
+	}
+
+	delete[] ptr;
+    return 0;
+}
+
