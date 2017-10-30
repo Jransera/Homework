@@ -1,0 +1,117 @@
+//Assingment 9 problem 1
+//Yared (Jr) Ansera
+
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+int getTotal(int num[4][5]);
+int getAverage(int num[4][5]);
+int getRowTotal(int num[4][5], int row);
+int getColumnTotal(int num[4][5], int column);
+int getHighestRow(int num[4][5], int row);
+int getLowestRow(int num[4][5], int row);
+
+int main()
+{
+	int total, average,rowTotal,lowest,highest,colTotal;
+	int num[4][5] = { {1,2,3,4,5,},
+						  {6,7,8,9,10},
+						  {11,12,13,14,15},
+						  {16,17,18,19,20} };
+
+	total = getTotal(num);
+	average = getAverage(num);
+	rowTotal = getRowTotal(num, 0);
+	colTotal = getColumnTotal(num, 2);
+	highest = getHighestRow(num, 2);
+	lowest = getLowestRow(num, 2);
+
+	cout << "The total of the array elements is " << total << endl;
+	cout << "The average is value of an element is " << average << endl;
+	cout << "The total of row 0 is " << rowTotal << endl;
+	cout << "The total of column 2 is " << colTotal << endl;
+	cout << "The highest value in row 2 is " << highest << endl;
+	cout << "The lowest value in row 2 is " << lowest << endl;
+	
+
+    return 0;
+}
+
+int getTotal(int num[4][5])
+{
+	int total = 0;
+
+	for (int row = 0; row < 4; row++)
+		for (int col = 0; col < 5; col++)
+			total += num[row][col];
+	
+	return total;
+}
+
+int getAverage(int num[4][5])
+{
+	int total, average;
+	
+	total = getTotal(num);
+	average = (total /20);
+
+	return average;
+}
+
+
+//get the total for the Row
+int getRowTotal(int num[4][5], int row)
+{
+	int total = 0;
+
+	for (int col = 0; col < 5; col++)
+		total += num[row][col];
+
+
+
+	return total;
+}
+
+int getColumnTotal(int num[4][5], int col)
+{
+	int total = 0;
+
+	for (int row = 0; row < 4; row++)
+		total += num[row][col];
+
+
+
+	return total;
+}
+
+
+//Get the highest number in the row
+int getHighestRow(int num[4][5], int row)
+{
+	int highest = num[row][0];
+
+	for (int col = 0; col < 5; col++)
+	{
+		if (num[row][col] > highest)
+			highest = num[row][col];
+	}
+	return highest;
+}
+
+
+//get the lowest number in a row
+int getLowestRow(int num[4][5], int row)
+{
+	int lowest = num[row][0];
+
+	for (int col = 0; col < 5; col++)
+	{
+		if (num[row][col] < lowest)
+			lowest = num[row][col];
+	}
+
+
+	return lowest;
+}
