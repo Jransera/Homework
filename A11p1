@@ -1,0 +1,41 @@
+//Yared (JR) Ansera
+//Assignment 11 problem 1
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+//structure for movie information
+struct movieInfo
+{
+	string title;
+	string director;
+	int year;
+	int time;
+};
+
+
+int main()
+{
+	//create an array for two movies and initialize
+	movieInfo movie[2];
+	movie[0] = { "War of the Worlds","Byron Haskin",
+					1953, 88 };
+	movie[1] = { "War of the Worlds","Stephen Spielberg",
+						2005,118 };
+
+
+	//display movie information
+	for (int x = 0; x < 2; x++)
+	{
+		cout << "Title       : " << movie[x].title << endl;
+		cout << "Director    : " << movie[x].director << endl;
+		cout << "Released    : " << movie[x].year << endl;
+		cout << "Running Time: " << movie[x].time << " minutes" << endl;
+		cout << endl << endl;
+	}
+    return 0;
+}
+
