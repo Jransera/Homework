@@ -1,0 +1,139 @@
+//Yared (Jr) Ansera
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+
+
+//global variables
+const int SIZE = 20;
+const int StudSIZE = 4;
+
+
+//structure for student Information
+struct studentInfo
+{
+	char name[SIZE];
+	int age;
+	double gpa;
+	char grade;
+	
+};
+
+
+
+int main()
+{
+	//structures
+	studentInfo student[StudSIZE];
+	studentInfo studentText[StudSIZE];
+	studentInfo studentBinary[StudSIZE];
+	studentInfo Temp;
+
+	//variables
+	int position;
+
+	//structure initialization
+	student[0] = { "Ann Annson", 10,1.10,'D' };
+	student[1] = { "Bill Billson",20,2.20,'C' };
+	student[2] = { "Carl Carlson",30,3.30,'A' };
+	student[3] = { "Don Donson",40,4.00,'A' };
+
+
+	//file initialization
+	fstream fFile;
+
+
+	//Write using text
+	fFile.open("student.txt", ios::out);
+	for (int x = 0; x < StudSIZE; x++)
+	{
+		fFile << student[x].name << endl;
+		fFile << student[x].age << endl;
+		fFile << student[x].gpa << endl;
+		fFile << student[x].grade << endl;
+	}
+	fFile.close();
+
+
+	//Write using binary
+	fFile.open("student.bin", ios::out | ios::binary);
+	for (int x = 0; x < StudSIZE; x++)
+	{
+		fFile.write(reinterpret_cast <char*> (student), sizeof(student));
+	}
+	fFile.close();
+
+
+	//read using text
+	cout << "Reading in using text:" << endl;
+	fFile.open("student.txt", ios::in);
+
+	for (int x = 0; x < StudSIZE; x++)
+	{
+		fFile.getline(studentText[x].name, SIZE);
+		fFile >> studentText[x].age;
+		fFile >> studentText[x].gpa;
+		fFile >> studentText[x].grade;
+		fFile.ignore();
+	}
+
+	for (int x = 0; x < StudSIZE; x++)
+	{
+		cout << fixed << setprecision(2);
+
+		cout << studentText[x].name << endl;
+		cout << studentText[x].age << endl;
+		cout << studentText[x].gpa << endl;
+		cout << studentText[x].grade << endl << endl;
+	}
+
+	fFile.close();
+
+
+	//read in using binary
+	cout << "\nReading in using binary:" << endl;
+	fFile.open("student.bin", ios::in | ios::binary);
+	fFile.read(reinterpret_cast<char *> (&studentBinary), sizeof(studentBinary));
+
+	for (int x = 0; x < StudSIZE; x++)
+	{
+		cout << studentBinary[x].name << endl;
+		cout << studentBinary[x].age << endl;
+		cout << studentBinary[x].gpa << endl;
+		cout << studentBinary[x].grade << endl;
+		cout << endl;
+	}
+
+	fFile.close();
+
+
+	//read in using random access commands
+	fFile.open("student.bin", ios::in | ios::binary);
+	cout << "\nWhich student are you looking for? Enter -1 to quit: ";
+	cin >> position;
+	while (position != -1)
+	{
+		fFile.seekg((position-1)* sizeof(studentInfo), ios::beg);
+		fFile.read(reinterpret_cast<char*> (&Temp) , sizeof(studentInfo));
+
+		cout << Temp.name << endl;
+		cout << Temp.age << endl;
+		cout << Temp.gpa << endl;
+		cout << Temp.grade << endl;
+		cout << endl;
+
+		cout << "\nWhich student are you looking for? Enter -1 to quit: ";
+		cin >> position;
+	}
+
+	fFile.close();
+	
+
+	
+    return 0;
+}
+
