@@ -1,0 +1,50 @@
+// A10p3.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+const int SIZE= 1000;
+
+void capital(char *line);
+
+int main()
+{
+	
+	char line[SIZE];
+	cout << "Enter at least two sentences,"<<
+		" but do not use capital letters." << endl;
+	cin.getline(line,SIZE);
+
+	capital(line);
+
+    return 0;
+}
+
+void  capital(char *line)
+{
+	int count = 0;
+
+	cout << endl << endl;
+	cout << "Here are your sentences with beginning words capitalized:";
+	cout << endl;
+
+	while (line[count] != '\0')
+	{
+
+
+		if (line[0])
+		{
+			line[0] = toupper(line[0]);
+		}
+
+		cout << line[count];
+		count++;
+
+
+	}
+	
+	cout << endl;
+}
