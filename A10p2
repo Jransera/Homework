@@ -1,0 +1,45 @@
+//Yared (jr) Ansera
+//Assignment 10 problem 2
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+const int SIZE = 80;
+
+int wordCount(char *line);
+
+int main()
+{	
+	//variables
+	int total;
+	char line[SIZE];
+	
+	//initial prompt and get string
+	cout << "Enter a C-string, 80 or fewer characters:" << endl;
+	cin.getline(line, SIZE);
+
+	//determine words
+	total = wordCount(line);
+
+	//dipslay word count
+	cout << endl << endl;
+	cout << "The number of words in the C-string: " << total << endl << endl;
+	
+    return 0;
+}
+
+//determine the amount of words.
+int wordCount(char *line)
+{
+	int count = 0;
+	int words = 1;
+	while (line[count] != '\0')
+	{
+		if (line[count] ==' ')
+			words++;
+		count++;
+	}
+
+	return words;
+}
