@@ -1,0 +1,120 @@
+//Yared (Jr) Ansera
+// Assignment 11 problem 2
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
+//structure to determine player info
+struct playerInfo
+{
+	string name;
+	int number;
+	int score;
+};
+
+//global constant
+const int SIZE = 4;
+
+//function prototypes
+void topscorer(playerInfo player[SIZE]);
+void getInfo(playerInfo &player);
+
+int main()
+{
+	//variables
+	int total = 0;
+	string topScorer;
+	
+	//create a new array for players
+	playerInfo player[SIZE];
+
+
+	//send to function to get player information
+	for (int x = 0; x < SIZE; x++)
+	{
+		cout << "PLAYER #" << (x+1) << endl;
+		cout << "----------" << endl;
+	
+		getInfo(player[x]);
+	}
+
+
+	cout << endl;
+	cout << "NAME \t NUMBER \t POINTS SCORED" << endl;
+	
+
+	//display player stats
+	for (int x = 0; x < SIZE; x++)
+	{
+		cout << player[x].name << " \t "
+			<< player[x].number << " \t \t  "
+			<< player[x].score << " \t "
+			<< endl;
+
+		total += player[x].score;
+	}
+	
+	
+	//display total team points
+	cout << "TOTAL POINTS: " << total << endl;
+
+	//get the top scorer
+	topscorer(player);
+
+	return 0;
+}
+
+
+
+
+//get player information
+void getInfo(playerInfo &player)
+{
+		cout << "Player name: ";
+		cin >> player.name;
+
+		cout << "Player's number: ";
+		cin >> player.number;
+
+		cout << "Points scored: ";
+		cin >> player.score;
+
+		cout << endl;
+	
+}
+
+
+
+//find the top scorer
+void topscorer(playerInfo player[SIZE])
+{
+	if (player[0].score > player[1].score && 
+		player[0].score > player[2].score &&
+		player[0].score > player[3].score)
+		
+		cout << "The player who scored the most points is: "
+		<< player[0].name << endl;
+
+	else if(player[1].score > player[0].score &&
+			player[1].score > player[2].score &&
+			player[1].score > player[3].score)
+
+		cout << "The player who scored the most points is: "
+		<< player[1].name << endl;
+
+	else if (player[2].score > player[1].score &&
+			 player[2].score > player[0].score &&
+		 	 player[2].score > player[3].score)
+
+		cout << "The player who scored the most points is: "
+		<< player[2].name << endl;
+
+	else
+
+		cout << "The player who scored the most points is: "
+		<< player[3].name << endl;
+
+
+}
