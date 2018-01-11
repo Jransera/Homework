@@ -1,0 +1,44 @@
+//Yared (jr) Ansera		
+//Assignment 10 problem 1
+
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+
+
+const int SIZE = 80;
+
+int strCount(char *line);
+
+
+int main()
+{
+	//Variables
+	int total;
+	char line[SIZE];
+
+	//Inital prompts and see in string
+	cout << "Please enter a string of 80 characters or less:" << endl;
+	cin.getline(line, SIZE);
+
+	//send string to be counted
+	total= strCount(line);
+	
+	//Display final count
+	cout << endl << endl;
+	cout << "The length of that string is: " << total << endl;
+    return 0;
+}
+
+//count string characters
+int strCount(char *line)
+{
+	int count=0;
+	
+	while (line[count] != '\0')
+	{
+		
+		count++;
+	}
+	return count;
+}
