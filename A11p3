@@ -1,0 +1,72 @@
+//Yared (jr) Ansera
+//Assignment 11 Problem 3
+
+#include "stdafx.h"
+#include <iostream>
+#include<iomanip>
+
+using namespace std;
+
+//structure for hourly workers
+struct hourly
+{
+	double hoursWorked;
+	double  hourlyRate;
+};
+
+//structure for sallaried workers
+struct salaried
+{
+	double salary;
+	double bonus;
+};
+
+//determine which structure to use
+union payType
+{
+	hourly H;
+	salaried S;
+};
+
+
+int main()
+{
+	//variables
+	payType p1;
+	char choice;
+
+	//determine what type of pay
+	cout << "Is the employee (H)ourly or (S)alaried? ";
+	cin >> choice;
+	choice = toupper(choice);
+	
+
+	//determine structure for hourly
+	if (choice == 'H')
+	{
+		cout << fixed << setprecision(2);
+		cout << "Please enter hours worked: ";
+		cin >> p1.H.hoursWorked;
+		cout << "Please enter the hourly rate: ";
+		cin >> p1.H.hourlyRate;
+		cout << "Pay is: $" << p1.H.hourlyRate*p1.H.hoursWorked<<endl;
+	}
+
+	
+	//determine struture variables for salaried
+	else
+	{
+		cout << fixed << setprecision(2);
+		cout << "Please enter salary: ";
+		cin >> p1.S.salary;
+		cout << "Please enter bonus: ";
+		cin >> p1.S.bonus;
+		cout << "Pay is: $" << p1.S.bonus+p1.S.salary<<endl;
+	}
+	
+	
+	
+	return 0;
+}
+
+
